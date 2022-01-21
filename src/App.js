@@ -1,19 +1,24 @@
 import './App.css';
+import { BrowserRouter, Routes, Route} from "react-router-dom";
+import Home_page from './pages/Home_page';
+import Profile_page from './pages/Profile_page';
+import All_groups_page from './pages/All_groups_page';
+import All_users_page from './pages/All_users_page';
+import Sign_in_register from './pages/Sign_in_register';
 
 function App() {
   return (
     <div className="App">
-      <h1>Wordle Tracker</h1>
-      <h3>Wordle Scorekeeping for your team</h3>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" exact element={<Home_page/>} />
+          <Route path="/profile" element={<Profile_page/>} />
+          <Route path="/profile" element={<Profile_page/>} />
+          <Route path="/profile" element={<Profile_page/>} />
+          <Route path="/profile" element={<Profile_page/>} />
 
-      <input placeholder='Paste Todays Wordle'></input>
-
-      <button>Visit Wordle</button>
-      <button>Sign In/Up</button>
-      <button>Join Team</button>
-      <button>Create Team</button>
-
-      <h3>Friends Leaderboard</h3>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
