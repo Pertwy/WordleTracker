@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-wordletracker-dev-182246-authRole",
+      "UnauthRoleArn": "arn:aws:iam::570974550569:role/amplify-wordletracker-dev-182246-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::570974550569:role/amplify-wordletracker-dev-182246-authRole",
+      "Region": "eu-north-1",
+      "DeploymentBucketName": "amplify-wordletracker-dev-182246-deployment",
+      "UnauthRoleName": "amplify-wordletracker-dev-182246-unauthRole",
+      "StackName": "amplify-wordletracker-dev-182246",
+      "StackId": "arn:aws:cloudformation:eu-north-1:570974550569:stack/amplify-wordletracker-dev-182246/2522bb70-7ae7-11ec-b61e-066fc945aca0",
+      "AmplifyAppId": "d1t31kum20jll"
+    }
+  }
+}

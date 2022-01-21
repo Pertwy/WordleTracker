@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "wordletracker",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "C:\\Users\\John Perkins\\Documents\\Coding\\Projects\\wordle-tracker\\amplify\\backend\\api\\wordletracker\\schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 7
+    }
+  }
+}
