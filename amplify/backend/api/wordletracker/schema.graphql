@@ -2,21 +2,25 @@
 # all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
 input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
 
-type Blog @model {
+type Group @model {
   id: ID!
   name: String!
-  posts: [Post] @hasMany
+  members: [User] @manyToMany(relationName: "groupMembers")
+  admins: [User] @manyToMany(relationName: "groupAdmins")
 }
 
-type Post @model {
+type User @model {
   id: ID!
-  title: String!
-  blog: Blog @belongsTo
-  comments: [Comment] @hasMany
+  name: String!
+  groups_member:[Group]  @manyToMany(relationName: "groupMembers")
+  groups_admin:[Group] @manyToMany(relationName: "groupAdmins")
+  effortDays:[Effort] @hasMany
+  friends: [User] @hasMany
 }
 
-type Comment @model {
+type Effort @model {
   id: ID!
-  post: Post @belongsTo
-  content: String!
+  day: Int,
+  score: Int,
+  colourString: String,
 }
