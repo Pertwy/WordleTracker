@@ -128,8 +128,19 @@ export const onCreateUser = /* GraphQL */ `
         }
         nextToken
       }
+      friends {
+        items {
+          id
+          name
+          createdAt
+          updatedAt
+          userFriendsId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
+      userFriendsId
     }
   }
 `;
@@ -170,8 +181,19 @@ export const onUpdateUser = /* GraphQL */ `
         }
         nextToken
       }
+      friends {
+        items {
+          id
+          name
+          createdAt
+          updatedAt
+          userFriendsId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
+      userFriendsId
     }
   }
 `;
@@ -212,8 +234,19 @@ export const onDeleteUser = /* GraphQL */ `
         }
         nextToken
       }
+      friends {
+        items {
+          id
+          name
+          createdAt
+          updatedAt
+          userFriendsId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
+      userFriendsId
     }
   }
 `;
@@ -286,8 +319,12 @@ export const onCreateGroupMembers = /* GraphQL */ `
         effortDays {
           nextToken
         }
+        friends {
+          nextToken
+        }
         createdAt
         updatedAt
+        userFriendsId
       }
       createdAt
       updatedAt
@@ -324,8 +361,12 @@ export const onUpdateGroupMembers = /* GraphQL */ `
         effortDays {
           nextToken
         }
+        friends {
+          nextToken
+        }
         createdAt
         updatedAt
+        userFriendsId
       }
       createdAt
       updatedAt
@@ -362,8 +403,12 @@ export const onDeleteGroupMembers = /* GraphQL */ `
         effortDays {
           nextToken
         }
+        friends {
+          nextToken
+        }
         createdAt
         updatedAt
+        userFriendsId
       }
       createdAt
       updatedAt
@@ -400,8 +445,12 @@ export const onCreateGroupAdmins = /* GraphQL */ `
         effortDays {
           nextToken
         }
+        friends {
+          nextToken
+        }
         createdAt
         updatedAt
+        userFriendsId
       }
       createdAt
       updatedAt
@@ -438,8 +487,12 @@ export const onUpdateGroupAdmins = /* GraphQL */ `
         effortDays {
           nextToken
         }
+        friends {
+          nextToken
+        }
         createdAt
         updatedAt
+        userFriendsId
       }
       createdAt
       updatedAt
@@ -476,8 +529,12 @@ export const onDeleteGroupAdmins = /* GraphQL */ `
         effortDays {
           nextToken
         }
+        friends {
+          nextToken
+        }
         createdAt
         updatedAt
+        userFriendsId
       }
       createdAt
       updatedAt

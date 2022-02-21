@@ -10,12 +10,13 @@ type Group @model {
 }
 
 type User @model {
-  id: ID!
-  name: String!
+  id: String! @primaryKey
+  userName: String!
   groups_member:[Group]  @manyToMany(relationName: "groupMembers")
   groups_admin:[Group] @manyToMany(relationName: "groupAdmins")
   effortDays:[Effort] @hasMany
-  friends: [User] @hasMany
+  following: [User] @hasMany
+  followers: [User] @hasMany
 }
 
 type Effort @model {

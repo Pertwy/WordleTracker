@@ -6,9 +6,12 @@ import All_groups_page from './pages/All_groups_page';
 import All_users_page from './pages/All_users_page';
 import Sign_in_register from './pages/Sign_in_register';
 
-import { Amplify, API, graphqlOperation } from 'aws-amplify';
+import Amplify, { Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
+
 Amplify.configure(awsconfig);
+
+
 
 function App() {
   return (

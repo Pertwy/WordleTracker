@@ -55,7 +55,7 @@ export const listGroups = /* GraphQL */ `
   }
 `;
 export const getUser = /* GraphQL */ `
-  query GetUser($id: ID!) {
+  query GetUser($id: String!) {
     getUser(id: $id) {
       id
       name
@@ -91,18 +91,37 @@ export const getUser = /* GraphQL */ `
         }
         nextToken
       }
+      friends {
+        items {
+          id
+          name
+          createdAt
+          updatedAt
+          userFriendsId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
+      userFriendsId
     }
   }
 `;
 export const listUsers = /* GraphQL */ `
   query ListUsers(
+    $id: String
     $filter: ModelUserFilterInput
     $limit: Int
     $nextToken: String
+    $sortDirection: ModelSortDirection
   ) {
-    listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listUsers(
+      id: $id
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
       items {
         id
         name
@@ -115,8 +134,12 @@ export const listUsers = /* GraphQL */ `
         effortDays {
           nextToken
         }
+        friends {
+          nextToken
+        }
         createdAt
         updatedAt
+        userFriendsId
       }
       nextToken
     }
@@ -185,8 +208,12 @@ export const getGroupMembers = /* GraphQL */ `
         effortDays {
           nextToken
         }
+        friends {
+          nextToken
+        }
         createdAt
         updatedAt
+        userFriendsId
       }
       createdAt
       updatedAt
@@ -215,6 +242,7 @@ export const listGroupMembers = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          userFriendsId
         }
         createdAt
         updatedAt
@@ -253,8 +281,12 @@ export const getGroupAdmins = /* GraphQL */ `
         effortDays {
           nextToken
         }
+        friends {
+          nextToken
+        }
         createdAt
         updatedAt
+        userFriendsId
       }
       createdAt
       updatedAt
@@ -283,6 +315,7 @@ export const listGroupAdmins = /* GraphQL */ `
           name
           createdAt
           updatedAt
+          userFriendsId
         }
         createdAt
         updatedAt

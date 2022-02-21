@@ -1,11 +1,19 @@
 import React, { useState } from 'react'
 import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 import { createEffort } from '../graphql/mutations'
-import { API, graphqlOperation } from 'aws-amplify'
+import Amplify, { API, Auth, graphqlOperation } from 'aws-amplify'
+
+import '@aws-amplify/ui-react/styles.css';
+
 
 export default function Home_page() {
 
     const [wordleInput, setWordleInput] = useState("")
+    
+    async function checkUser(){
+        const user = await Auth.currentAuthenticatedUser();
+        console.log("user", user)
+    }
 
     function formatWordle(wordle){
         
@@ -36,13 +44,6 @@ export default function Home_page() {
 
         await API.graphql(graphqlOperation(createEffort, {input:data}))
             .then(res => console.log(res))
-        //await API.graphql({ mutation: createEffort, variables: data})
-        // await API.graphql(createEffort, {
-        //     input: data
-        //   }
-        // )
-        
-        // .catch(err => console.log(err))
     }
 
 
@@ -52,13 +53,16 @@ export default function Home_page() {
             <h3>Wordle Scorekeeping for your team</h3>
 
             <input onChange={(e)=>setWordleInput(e.target.value)} placeholder='Paste Todays Wordle'></input>
-
+            {console.log(Auth.configure())}
             <button onClick={()=>submitEffort(wordleInput)}>Submit</button>
             <button>Visit Wordle</button>
             <button>Sign In/Up</button>
             <button>Join Team</button>
             <button>Create Team</button>
+            <button onClick={()=>checkUser()}>Test</button>
             <Link to="profile">Profile</Link>
+            <Link to="signIn">Sign In</Link>
+            
 
             <h3>Friends Leaderboard</h3>
             <h3>Groups Leaderboard</h3>
